@@ -1,0 +1,33 @@
+.content{
+  .logIn{
+    display: flex;
+    flex-direction: column;
+    max-width: 280px;
+    margin: 50px auto;
+  }
+  .viewLocation{
+    padding: 10px;
+  }
+  .searchCountrySection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .searchCountry {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: calc(100% / 5 - 54px);
+      border: 2px solid red;
+      margin: 15px 10px;
+      padding: 15px;
+      h3{
+        text-align: center;
+      }
+      .countryImage{
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+}

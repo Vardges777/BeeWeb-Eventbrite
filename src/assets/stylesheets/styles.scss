@@ -1,0 +1,21 @@
+@import "SignUp";
+
+@import "LogIn";
+
+@import "Content";
+
+h1{
+  color: #3598dc;
+  text-align: center;
+}
+input{
+  margin-bottom: 15px;
+  padding: 10px 8px;
+}
+input[type="submit"],button{
+  color: #fff;
+  background-color: #3598dc;
+  padding: 20px 8px;
+  border: unset;
+  cursor: pointer;
+}
