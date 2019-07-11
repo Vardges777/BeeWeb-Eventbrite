@@ -11,24 +11,38 @@ export const handleChange = (event) => dispatch => {
 export const signIn = (e) => (dispatch,getState) => {
     const { signUp:{ userdata } } = getState();
     e.preventDefault();
+    let alreadyRegistered = true;
+    const emailLength = userdata.email.length;
+    const password = userdata.password.length;
+    var boolean = false;
+    var store = [];
+    let getStorage = localStorage.getItem("data");
+
     if (typeof userdata.email == "string" && typeof userdata.password == "string" && typeof userdata.ReTypePassword == "string") {
-        const emailLength = userdata.email.length;
-        const password = userdata.password.length;
-        var boolean = false;
+        let getStorage2 = localStorage.getItem("data");
         if (userdata.password == userdata.ReTypePassword && emailLength >= 6 && password >= 6) {
-            let getStorage = localStorage.getItem("data");
-            var store = [];
             if (getStorage == null){
                 store.push(userdata);
                 localStorage.setItem("data",JSON.stringify(store));
+                boolean = true;
             }
             else{
-                let getStorage = localStorage.getItem("data");
-                store = JSON.parse(getStorage);
-                store.push(userdata);
-                localStorage.setItem("data",JSON.stringify(store));
+                JSON.parse(getStorage2).map((item) => {
+                    if(item.email == userdata.email){
+                        alreadyRegistered = false;
+                    }
+                });
+                if (alreadyRegistered) {
+                    store = JSON.parse(getStorage);
+                    store.push(userdata);
+                    localStorage.setItem("data",JSON.stringify(store));
+                    boolean = true;
+                }
+                else{
+                    console.log("This email is already exist")
+                }
             }
-            boolean = true;
+
         } else {
             console.log("Your password or email is too short");
         }
@@ -36,7 +50,6 @@ export const signIn = (e) => (dispatch,getState) => {
     else{
         console.log("Fill all inputs")
     }
-
     dispatch({
         type:"REGISTER_BTN",
         registerSuccess:boolean,
