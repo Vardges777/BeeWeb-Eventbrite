@@ -34,6 +34,15 @@
     .content .searchCountrySection .searchCountry .countryImage img {
       width: 100%; }
 
+nav {
+  display: flex;
+  justify-content: flex-end; }
+  nav a {
+    margin: 10px 30px;
+    text-decoration: unset; }
+  nav .currentLink {
+    color: red; }
+
 h1 {
   color: #3598dc;
   text-align: center; }

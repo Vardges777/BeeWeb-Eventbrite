@@ -7,17 +7,21 @@ export const handleChange = (event) => dispatch => {
 };
 
 export const logIn = (event) => (dispatch,getState) => {
-    event.preventDefault()
+    event.preventDefault();
     const { logIn,signUp } = getState();
     let loogedIn = false;
-    signUp.userObjData.map((item)=> {
+    let dataUser = [];
+    dataUser = JSON.parse(localStorage.getItem("data"));
+    dataUser.map((item)=> {
         if ((item.email === logIn.email) && (item.password === logIn.password)) {
             loogedIn = true
         }
-    })
+    });
+    if (loogedIn === false){
+        console.log("Your password or email is not correct")
+    }
     dispatch({
         type:"LOG_IN",
         log:loogedIn
-
     })
 }

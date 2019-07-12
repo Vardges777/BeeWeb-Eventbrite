@@ -1,0 +1,11 @@
+nav{
+  display: flex;
+  justify-content: flex-end;
+  a{
+    margin:10px 30px;
+    text-decoration: unset;
+  }
+  .currentLink{
+    color: red;
+  }
+}

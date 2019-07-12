@@ -7,9 +7,12 @@ class LogIn extends Component {
     render() {
         const {logInState: {logged}} = this.props;
         const {handleChange, logIn} = this.props;
+        const { signUpState:{ register } } = this.props;
+
         return (
             <>
                 {
+
                     logged ? <Content/> : <form className="LogIn">
                         <h1>Log In</h1>
                         <input type="text" name="email" onChange={handleChange}/>
@@ -25,6 +28,7 @@ class LogIn extends Component {
 export default connect(
     state => ({
         logInState: state.logIn,
+        signUpState: state.signUp,
     }),
     {
         handleChange,

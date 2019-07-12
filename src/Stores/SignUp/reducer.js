@@ -16,14 +16,6 @@ export default function(state = initialState,action){
                 }
             }
         }
-        // dataUser.map((user) => {
-        //      if (userdata.email == user.email){
-        //          console.log("ka")
-        //      }
-        //      else{
-        //          console.log("chka")
-        //      }
-        // });
         case "REGISTER_BTN" : {
             return{
                 ...state,
