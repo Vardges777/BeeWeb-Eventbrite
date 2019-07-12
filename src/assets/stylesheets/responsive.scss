@@ -1,0 +1,19 @@
+@media only screen and (max-width: 991px) {
+  .content {
+    .searchCountrySection {
+      .searchCountry {
+        width:calc(100% / 2 - 54px) ;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .content {
+    .searchCountrySection {
+      .searchCountry {
+        width:calc(100% - 54px) ;
+      }
+    }
+  }
+}

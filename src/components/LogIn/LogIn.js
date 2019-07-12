@@ -7,7 +7,6 @@ class LogIn extends Component {
     render() {
         const {logInState: {logged}} = this.props;
         const {handleChange, logIn} = this.props;
-
         return (
             <>
                 {
