@@ -1,28 +1,36 @@
 import React,{ Component } from "react"
 import { connect } from 'react-redux';
-import { inputValue,searchButton,viewLocation } from "../../Stores/Search/action";
+import {
+    inputValue,
+    searchButton,
+    viewLocation
+} from "../../Stores/Search/action";
+
 class Search extends Component {
 
     render() {
         const { inputValue,searchButton,viewLocation } = this.props;
         const { searchState:{ cityData } } = this.props;
-
+        let url;
         const searchCountry = cityData.map((data,index) => {
-
            if (data.logo !== null){
-               var url = data.logo.url
+                url = data.logo.url
            }
             return(
                 <div className="searchCountry" key={ index }>
                     <h3>
-                    {data.name.text}
+                    { data.name.text }
                     </h3>
                     <div className="countryImage">
-                        <img src={url} alt="london"/>
+                        <img src={ url } alt="london"/>
                     </div>
-                    <span className="viewLocation" id={data.id} onClick={ viewLocation }>View Location</span>
+                    <span className="viewLocation"
+                          id={ data.id }
+                          onClick={ viewLocation }>
+                        View Location
+                    </span>
                 </div>)
-        })
+        });
         return (
             <>
                  <div className="logIn">

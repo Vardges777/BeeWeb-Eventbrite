@@ -7,12 +7,11 @@ export const inputValue = (event) => dispatch => {
 };
 
 export const searchButton = () => async (dispatch,getState) => {
-    const {search:{value}} = getState();
-    // const lowerCase = value.toLowerCase();
-    // const correctName = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
-    // console.log(lowerCase)
+    const { search:{ value } } = getState();
+    const lowerCase = value.toLowerCase();
+    const correctName = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
     try {
-        const response = await fetch(`${url}/events/search/?q=${value}&token=BHVEJSNZNZRUKYVRCKVH`,{
+        const response = await fetch(`${ url }/events/search/?q=${ correctName }&token=K6PD34YBYIQ62CMVBLZL`,{
             method:"GET"
         });
         const result = await response.json();
@@ -27,7 +26,7 @@ export const searchButton = () => async (dispatch,getState) => {
 
 export const viewLocation = (event) =>async dispatch => {
     const id = event.target.id;
-    const response = await fetch(`${url}/events/${id}/?expand=venue&token=BHVEJSNZNZRUKYVRCKVH`,{
+    const response = await fetch(`${ url }/events/${ id }/?expand=venue&token=K6PD34YBYIQ62CMVBLZL`,{
         method:"GET"
     });
     const result = await response.json();

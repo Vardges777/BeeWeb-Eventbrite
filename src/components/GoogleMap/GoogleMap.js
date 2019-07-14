@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { connect } from 'react-redux';
-
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import  cursor from "../../assets/images/cursor.png"
+const AnyReactComponent = ({ text }) => <img src={cursor} width='100px' height='100px'/>;
 
 class SimpleMap extends Component {
     static defaultProps = {
-        zoom:6
+        zoom:11
     };
 
     render() {
@@ -27,9 +26,8 @@ class SimpleMap extends Component {
                     <AnyReactComponent
                         lat={ latitude }
                         lng={ longitude }
-                        text="AAAAAAAAAA"
+                        text="Stexa"
                     />
-
                 </GoogleMapReact>
             </div>
         );

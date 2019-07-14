@@ -1,5 +1,5 @@
 const initialState = {
-
+    logged:false
 };
 
 export default function(state = initialState,action){
