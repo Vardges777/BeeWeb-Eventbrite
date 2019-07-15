@@ -15,25 +15,19 @@ class Welcome extends Component {
             logInState: { logged }
         } = this.props;
 
-        console.log("register   " + register);
-        console.log("logged   " + logged);
         let currentPage;
         if (register === false && logged === false){
             currentPage = <Redirect to="/"/>;
-            console.log("Sign Up")
+
        }
          if (register === true && logged === false){
-            currentPage = <Redirect to="/LogIn"/>;
-            console.log("Log In")
+            currentPage = <Redirect to="/LogIn"/>
         }
         if (logged){
             currentPage = <Redirect to="/Content"/>;
-            console.log("Content")
         }
-        setTimeout(function(){
             localStorage.setItem("loggedIn","false");
             localStorage.setItem("register","false");
-        },20000)
 
         return (
             <Router>

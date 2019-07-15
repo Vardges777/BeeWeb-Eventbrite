@@ -10,19 +10,24 @@ export const logIn = (event) => (dispatch,getState) => {
     event.preventDefault();
     const { logIn } = getState();
     localStorage.setItem("loggedIn","false")
-    // let loogedIn = false;
     let dataUser = [];
     dataUser = JSON.parse(localStorage.getItem("data"));
-    dataUser.map((item)=> {
-        if ((item.email === logIn.email) && (item.password === logIn.password)) {
-            localStorage.setItem("loggedIn","true")
-            // loogedIn = true
-        }
-    });
+    let users = JSON.parse(localStorage.getItem("users"));
+    if (users === true){
+        dataUser.map((item)=> {
+            if ((item.email === logIn.email) && (item.password === logIn.password)) {
+                localStorage.setItem("loggedIn","true")
+            }
+        });
 
-    if (JSON.parse(localStorage.getItem("loggedIn")) === false){
-        console.log("Your password or email is not correct")
+        if (JSON.parse(localStorage.getItem("loggedIn")) === false){
+            console.log("Your password or email is not correct")
+        }
     }
+    else{
+        console.log("Please register")
+    }
+
 
     dispatch({
         type:"LOG_IN",

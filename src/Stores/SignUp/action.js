@@ -26,7 +26,7 @@ export const signIn = (e) => (dispatch,getState) => {
                 store.push(userdata);
                 localStorage.setItem("data",JSON.stringify(store));
                 localStorage.setItem("register","true")
-
+                localStorage.setItem("users","true")
             }
             else{
                 JSON.parse(getStorage2).map((item) => {
@@ -38,7 +38,8 @@ export const signIn = (e) => (dispatch,getState) => {
                     store = JSON.parse(getStorage);
                     store.push(userdata);
                     localStorage.setItem("data",JSON.stringify(store));
-                    localStorage.setItem("register","true")
+                    localStorage.setItem("register","true");
+                    localStorage.setItem("users","true")
 
                 }
                 else{
